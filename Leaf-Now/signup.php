@@ -9,8 +9,8 @@
      $phone = $_POST["phone"];
      $email = $_POST["email"];
      $date = $_POST["date"];
-     $password = $_POST["password"];
-     $cpassword = $_POST["cpassword"];
+     $password = md5($_POST["password"]);
+     $cpassword = md5($_POST["cpassword"]);
      $exists = false;
      if(($password==$cpassword) && $exists==false && $username!='admin'){
        $sql = "INSERT INTO `customer`(`c_username`,`f_name`,`l_name`,`c_phone`,`email`,`c_dob`,`c_password`) VALUES ('$username','$fname','$lname','$phone','$email','$date','$password')";
